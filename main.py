@@ -2,7 +2,7 @@ import random
 from tkinter import *
 import time
 import os
-import sort.bubble, sort.insert
+import sort.bubble, sort.insert, sort.selection
 
 
 def Log(arr, comparing):
@@ -20,9 +20,9 @@ def Log(arr, comparing):
 
 if __name__ == "__main__":
     
-    #SORTTYPE = input()
-    SORTTYPE = "BUBBLE"
-    sleep = 0.1
+    SORTTYPE = input()
+    #SORTTYPE = "SELECTION"
+    sleep = 0.05
     arr = random.sample(range(0, 16), 16)
 
 
@@ -49,4 +49,16 @@ if __name__ == "__main__":
             time.sleep(sleep)
         print("Insert Sort")
         print(f"Compairs: {result_insert[2]}\nSwaps: {result_insert[1]}")
+        print("\033[38;2;215;95;215m" + "TASK FINISED SUCCESFULLY" + "\033[0m")
+        
+    if SORTTYPE == "SELECTION":
+        i_ = -1
+        result_selection = sort.selection.Selection(arr)
+        for i in result_selection[0]:
+            i_ += 1
+            os.system('clear')
+            Log(i, result_selection[3][i_]) #reusult[3] == comparing
+            time.sleep(sleep)
+        print("Selection Sort")
+        print(f"Compairs: {result_selection[2]}\nSwaps: {result_selection[1]}")
         print("\033[38;2;215;95;215m" + "TASK FINISED SUCCESFULLY" + "\033[0m")
