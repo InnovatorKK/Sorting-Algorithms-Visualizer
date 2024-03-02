@@ -10,14 +10,14 @@ def Selection(arr):
         for j in range(i+1, len(arr)):
             if arr[j] < arr[min]:
                 min = j
-
-            if i != min:      
-                arr[i], arr[min] = arr[min], arr[i] 
-                swaps += 1
-            ret.append(arr[:])
-            compairing.append((j, min))
-                
             compairs += 1
+            compairing.append((j, min))
+            ret.append(arr[:])
+
+  
+        arr[i], arr[min] = arr[min], arr[i] 
+        swaps += 1
+                
             
 
     return ret, swaps, compairs, compairing
